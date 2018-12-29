@@ -9,7 +9,7 @@ scalaVersion := "2.11.8"
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
 libraryDependencies ++= {
-  val sparkV = "2.1.0"
+  val sparkV = "2.3.1"
 
   Seq(
     "org.apache.spark" %% "spark-core" % sparkV % "provided",
@@ -74,7 +74,7 @@ dockerfile in docker := {
   val dockerResourcesTargetPath = s"$imageAppBaseDir/"
 
   new Dockerfile {
-    from("semantive/spark")
+    from("kse/spark.2.3.1:latest")
     maintainer("Semantive")
     env("APP_BASE", s"$imageAppBaseDir")
     env("APP_CLASS", mainClassString)

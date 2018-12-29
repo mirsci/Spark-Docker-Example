@@ -13,6 +13,8 @@ object SparkApplication {
     val sparkSession = SparkSession
       .builder
       .appName("Spark Pi")
+      .config("spark.driver.host", "172.17.0.4")
+      .config("spark.driver.bindAddress", "0.0.0.0")
       .getOrCreate()
 
     val n = 2950000
